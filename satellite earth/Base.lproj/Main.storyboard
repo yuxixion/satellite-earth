@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="satellite_earth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,46 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="148" minValue="100" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="npf-fR-G4N">
+                                <rect key="frame" x="317" y="58" width="263" height="31"/>
+                                <connections>
+                                    <action selector="distanceChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="wKr-gI-rkm"/>
+                                </connections>
+                            </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-zP-zxE">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="D4K-ef-EGP"/>
+                                    <constraint firstAttribute="width" constant="150" id="eMp-xF-2cp"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="XAU-uG-6VG">
+                                <rect key="frame" x="317" y="20" width="263" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="U84-bG-dMA"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="speedChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="PSP-Ek-M4s"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="npf-fR-G4N" firstAttribute="leading" secondItem="XAU-uG-6VG" secondAttribute="leading" id="4Ir-cf-mI7"/>
+                            <constraint firstAttribute="centerY" secondItem="ef9-zP-zxE" secondAttribute="centerY" id="CcR-Hn-UjX"/>
+                            <constraint firstAttribute="centerX" secondItem="ef9-zP-zxE" secondAttribute="centerX" id="FIQ-7b-6Vk"/>
+                            <constraint firstItem="XAU-uG-6VG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ty3-ko-GLp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XAU-uG-6VG" secondAttribute="trailing" constant="6" id="h2V-4C-FuF"/>
+                            <constraint firstItem="npf-fR-G4N" firstAttribute="trailing" secondItem="XAU-uG-6VG" secondAttribute="trailing" id="sl9-Fw-wsI"/>
+                            <constraint firstItem="npf-fR-G4N" firstAttribute="top" secondItem="XAU-uG-6VG" secondAttribute="bottom" constant="8" symbolic="YES" id="tue-zQ-1AY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceController" destination="npf-fR-G4N" id="fIf-of-xa4"/>
+                        <outlet property="earthImageView" destination="ef9-zP-zxE" id="Zb6-03-3tn"/>
+                        <outlet property="speedController" destination="XAU-uG-6VG" id="WmG-iL-JEk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
