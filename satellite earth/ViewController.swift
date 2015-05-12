@@ -51,6 +51,8 @@ class ViewController: UIViewController {
  
     @IBAction func speedChange(sender: UISlider) {
         rotationSpeed = Double(sender.value)
+        updateState()
+
     }
     
     
